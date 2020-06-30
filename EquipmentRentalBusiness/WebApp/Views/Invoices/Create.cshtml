@@ -1,0 +1,118 @@
+@using Microsoft.EntityFrameworkCore.Internal
+@model WebApp.ViewModels.InvoiceCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Checkout Forms-->
+<section class="checkout">
+    <div class="container">
+        <form asp-action="Create">
+            <div class="row">
+                <div class="col-lg-8">
+                    <ul class="nav nav-pills" role="tablist">
+
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-toggle="tab" href="#paymentMethod" role="tab" aria-controls="paymentMethod" aria-selected="true">@Resources.Views.Invoice.Index.PaymentMethod</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#orderReview" role="tab" aria-controls="orderReview" aria-selected="false">@Resources.Views.Invoice.Index.OrderReview</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="paymentMethod" role="tabpanel">
+                            <div class="tab-block">
+
+                                <div class="form-group">
+                                    <label asp-for="PaymentTypeId" class="control-label"></label>
+                                    <select asp-for="PaymentTypeId" class="form-control" asp-items="Model.PaymentTypeSelectList"></select>
+                                    <span asp-validation-for="PaymentTypeId" class="text-danger"></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="orderReview" role="tabpanel">
+                            <div class="tab-block">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            @Html.DisplayNameFor(model => model.Bookings.FirstOrDefault().Item!.Description)
+                                        </th>
+                                        <th scope="col">
+                                            @Html.DisplayNameFor(model => model.Bookings.FirstOrDefault().BookingStartDay)
+                                        </th>
+                                        <th scope="col">
+                                            @Html.DisplayNameFor(model => model.Bookings.FirstOrDefault().BookingEndDay)
+                                        </th>
+                                        <th scope="col">
+                                            @Html.DisplayNameFor(model => model.Bookings.FirstOrDefault().BookingTotal)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @foreach (var item in Model.Bookings!)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Item!.Description)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BookingStartDay)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BookingEndDay)
+                                            </td>
+                                            <td class="text-right">
+                                                @Html.DisplayFor(modelItem => item.BookingTotal)
+                                            </td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="block-body order-summary">
+                        <h6 class="text-uppercase">@Resources.Views.Invoice.Index.OrderSummary</h6>
+                        
+                        <ul class="order-menu list-unstyled">
+                            <li class="d-flex justify-content-between">
+                                <span>@Resources.Views.Invoice.Index.OrderSubTotal </span><strong>@Model.InvoiceWithoutVat €</strong>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span>@Resources.Views.Invoice.Index.VAT</span><strong>@Model.Vat €</strong>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span>@Resources.Views.Invoice.Index.Total</span><strong class="text-primary price-total">@Model.InvoiceTotal €</strong>
+                            </li>
+                        </ul>
+                        <input type="hidden" asp-for="InvoiceWithoutVat" />
+                        <input type="hidden" asp-for="Vat" />
+                        <input type="hidden" asp-for="InvoiceTotal" />
+                        <input type="hidden" asp-for="Bookings" />
+                        <div class="form-group">
+                            <input type="submit" value="@Resources.Views.Invoice.Index.PlaceOrder" class="btn btn-primary cart"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

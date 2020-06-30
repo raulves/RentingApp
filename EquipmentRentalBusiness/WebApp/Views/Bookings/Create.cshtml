@@ -1,0 +1,237 @@
+@using System.Globalization
+@using System.Threading
+@model WebApp.ViewModels.SingleItemViewVM
+
+
+<div>
+    <a asp-controller="Items" asp-action="Index">@Resources.Views.Bookings.Index.Index.BackToList</a>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        @if (Model.Images!.Count > 0)
+                        {
+                            <img src="data:image/*;base64,@Convert.ToBase64String(Model.Images!.FirstOrDefault()!.Picture!)" class="d-block w-100" alt="image">
+                        }
+                        else
+                        {
+                            <img src="" alt="Image"/>
+                        }
+
+                    </div>
+                    @foreach (var image in Model.Images!.Skip(1))
+                    {
+                        <div class="carousel-item">
+                            <img src="data:image/*;base64,@Convert.ToBase64String(image.Picture!)" class="d-block w-100" alt="image">
+                        </div>
+                    }
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <p class="newarrival text-center">@Resources.Views.Bookings.Index.Index.New</p>
+            <h2>@Html.DisplayFor(model => model.Description)</h2>
+            <p>
+                <b>@Html.DisplayNameFor(model => model.Brand):</b> @Html.DisplayFor(model => model.Brand)
+            </p>
+            <p>
+                <b>@Html.DisplayNameFor(model => model.Model):</b> @Html.DisplayFor(model => model.Model)
+            </p>
+            <p>
+                <b>@Html.DisplayNameFor(model => model.LocationId):</b> @Html.DisplayFor(model => model.Location!.AddressLine)
+            </p>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item price">@Html.DisplayFor(model => model.PricePerDay) € @Html.DisplayNameFor(model => model.PricePerDay)</li>
+                <li class="list-group-item price">@Html.DisplayFor(model => model.PricePerWeek) € @Html.DisplayNameFor(model => model.PricePerWeek)</li>
+                <li class="list-group-item price">@Html.DisplayFor(model => model.PricePerMonth) € @Html.DisplayNameFor(model => model.PricePerMonth)</li>
+            </ul>
+            <br/>
+            <form asp-action="Create" asp-route-id="@Model.Id">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label asp-for="BookingStartDay" class="control-label"></label>
+                            <input asp-for="BookingStartDay" class="form-control"/>
+                            <span asp-validation-for="BookingStartDay" class="text-danger"></span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label asp-for="BookingEndDay" class="control-label"></label>
+                            <input asp-for="BookingEndDay" class="form-control"/>
+                            <span asp-validation-for="BookingEndDay" class="text-danger"></span>
+                        </div>
+                    </li>
+                </ul>
+                <br/>
+                @if (User.Identity.IsAuthenticated && Model.CompanySelectList!.Any())
+                {
+                    <div class="form-group">
+                        <label asp-for="CompanyId" class="control-label"></label>
+                        <select asp-for="CompanyId" class="form-control" asp-items="Model.CompanySelectList">
+                            <option selected>--- @Resources.Views.Bookings.Index.Index.Select ---</option>
+                        </select>
+                        <span asp-validation-for="CompanyId" class="text-danger"></span>
+                    </div>
+                }
+                <br/>
+
+                <div class="form-group">
+                    <input type="submit" value="@Resources.Views.Bookings.Index.Index.AddToCart" class="btn btn-primary cart"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <main role="main">
+                <div class="main-content__section thumb-style-novel">
+                    <article class="offer-details__section">
+                        <div class="section">
+                            <div class="tabs-panels" role="tabpanel">
+
+                                <div class="tabs-responsive">
+                                    <ul class="tabs-list nav nav-tabs" role="tablist" id="item-tabs">
+                                        <li role="presentation" class="tabs-list__item" id="tab-menu-item">
+                                            <a href="#item" aria-controls="item" role="tab" data-toggle="tab" class="icon icon-info active show">
+                                                <span class="d-none d-md-block">@Resources.Views.Bookings.Index.Index.ItemInfo</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="tabs-list__item" id="tab-menu-feedback">
+                                            <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab" class="icon icon-user" id="tab-feedback">
+                                                <span class="d-none d-md-block">@Resources.Views.Bookings.Index.Index.OwnerInfo</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tab-content">
+                                    <!-- tab-description -->
+                                    <div role="tabpanel" class="tab-pane fade active show" id="item">
+
+                                        <!-- item details -->
+                                        <table class="table" id="item-content">
+                                            <tbody>
+                                            @foreach (var description in Model.ItemDescriptions!)
+                                            {
+                                                <tr>
+                                                    <th>@description.ProductDescription!.Description</th>
+                                                    <td>@description.Description</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                        <!-- // item details -->
+                                    </div>
+                                    <!-- // tab-description -->
+                                    <!-- tab-feedback -->
+                                    <div role="tabpanel" class="tab-pane fade pb-4" id="feedback">
+                                        <table class="table" id="item-content">
+                                            <tbody>
+                                            @if (Model.ItemOwnerCompany == null)
+                                            {
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.UserName:</th>
+                                                    <td>@Html.DisplayFor(model => model.AppUser!.FullName)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.LocationId:</th>
+                                                    <td>@Html.DisplayFor(model => model.Location!.AddressLine)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.Email:</th>
+                                                    <td>@Html.DisplayFor(model => model.AppUser!.Email)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.Phone:</th>
+                                                    <td>@Html.DisplayFor(model => model.AppUser!.Phone)</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.UserName:</th>
+                                                    <td>@Html.DisplayFor(model => model.ItemOwnerCompany!.CompanyName)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.LocationId:</th>
+                                                    <td>@Html.DisplayFor(model => model.Location!.AddressLine)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.Email:</th>
+                                                    <td>@Html.DisplayFor(model => model.ItemOwnerCompany!.Email)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>@Resources.Views.AppUser.AppUser.Phone:</th>
+                                                    <td>@Html.DisplayFor(model => model.ItemOwnerCompany!.Phone)</td>
+                                                </tr>
+                                            }
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- // tab-feedback -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+        function getItemBookedDates(){
+            var dates = [];
+            @foreach (var booking in Model.ItemsBooked!)
+            {
+                var dateFrom = booking.DateFrom.Year + "-" + booking.DateFrom.Month + "-" + booking.DateFrom.Day;
+                var dateTo = booking.DateTo.Year + "-" + booking.DateTo.Month + "-" + booking.DateTo.Day;
+
+                <text>
+                    var from = "@(dateFrom)";
+                    var to = "@(dateTo)";
+                    dates.push({from: from,to: to})
+                </text>
+            }
+            return dates;
+        }
+    
+        window.flatpickrFunction(getItemBookedDates());
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+}

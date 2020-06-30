@@ -1,0 +1,27 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h4>@Resources.Views.Account.Manage.Manage.PersonalData</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>@Resources.Views.Account.Manage.Manage.PersonalText</p>
+        <p>
+            <strong>@Resources.Views.Account.Manage.Manage.PersonalTextBold</strong>
+        </p>
+        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+            <button class="btn btn-primary" type="submit">@Resources.Views.Account.Manage.Manage.Download</button>
+        </form>
+        <p>
+            <a id="delete" asp-page="DeletePersonalData" class="btn btn-primary">@Resources.Views.Account.Manage.Manage.Delete</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

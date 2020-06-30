@@ -1,0 +1,64 @@
+@model IEnumerable<WebApp.ViewModels.BookingsCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br/>
+<div>
+    <a href="/Identity/Account/Manage">@Resources.Views.Bookings.Index.Index.BackToProfile</a>
+</div>
+<br/>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Item!.Description)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingStartDay)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingEndDay)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingPeriodDays)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.PricePerDay)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingTotal)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item!.Description)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStartDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingEndDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingPeriodDays)
+            </td>
+            <td class="text-right">
+                @Html.DisplayFor(modelItem => item.PricePerDay)
+            </td>
+            <td class="text-right">
+                @Html.DisplayFor(modelItem => item.BookingTotal)
+            </td>
+            
+        </tr>
+    }
+</table>

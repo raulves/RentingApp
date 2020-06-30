@@ -1,0 +1,130 @@
+@model IEnumerable<WebApp.ViewModels.BookingsCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>@Resources.Views.Bookings.Index.Index.ShoppingCart</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Item!.Description)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingStartDay)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingEndDay)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingPeriodDays)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.PricePerDay)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.BookingWithoutVat)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        Decimal total = 0;
+        Decimal? vat = 0;
+        Decimal? orderTotal = 0;
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item!.Description)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStartDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingEndDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingPeriodDays)
+            </td>
+            <td class="text-right">
+                @Html.DisplayFor(modelItem => item.PricePerDay)
+            </td>
+            <td class="text-right">
+                @Html.DisplayFor(modelItem => item.BookingWithoutVat)
+            </td>
+            <td class="text-right">
+                <form asp-action="Delete" asp-route-id="@item.Id">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+
+        total += item.BookingWithoutVat;
+        vat += item.Vat;
+        
+    }
+    @{
+        orderTotal = total + vat;
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@Resources.Views.Bookings.Index.Index.SubTotal</td>
+        <td class="text-right">@total €</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@Resources.Views.Bookings.Index.Index.VAT</td>
+        <td class="text-right">@vat €</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <strong>@Resources.Views.Bookings.Index.Index.Total</strong>
+        </td>
+        <td class="text-right">
+            <strong>@orderTotal €</strong>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="col mb-2">
+    <div class="row">
+        <div class="col-sm-12  col-md-6">
+            <a class="btn btn-block btn-light" asp-controller="Items" asp-action="Index">@Resources.Views.Bookings.Index.Index.ContinueShopping</a>
+        </div>
+        
+        @if (Model.Any())
+        {
+            <div class="col-sm-12 col-md-6 text-right">
+                <a class="btn btn-lg btn-block btn-success text-uppercase" asp-controller="Invoices" asp-action="Create">@Resources.Views.Bookings.Index.Index.Checkout</a>
+            </div>
+        }
+        else
+        {
+            <div class="col-sm-12 col-md-6 text-right">
+                <a class="btn btn-lg btn-block btn-success text-uppercase disabled" asp-controller="Invoices" asp-action="Create">@Resources.Views.Bookings.Index.Index.Checkout</a>
+            </div>
+        }
+        
+    </div>
+</div>

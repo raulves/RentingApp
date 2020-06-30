@@ -1,0 +1,22 @@
+@model WebApp.ViewModels.ItemCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div>
+    <a href="/Identity/Account/Manage">@Resources.Views.Shared.Common.BackToProfile</a>
+</div>
+
+
+
+<h3>@Resources.Views.Shared.Common.DeleteConfirmation</h3>
+<div>
+    
+    <partial name="_DetailsDelete" model="@Model"/>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Resources.Views.Shared.Common.Delete" class="btn btn-danger" />
+    </form>
+    
+</div>

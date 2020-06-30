@@ -1,0 +1,72 @@
+
+@model WebApp.ViewModels.ItemCreateEditViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Description" class="control-label"></label>
+    <input asp-for="Description" class="form-control"/>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Brand" class="control-label"></label>
+    <input asp-for="Brand" class="form-control"/>
+    <span asp-validation-for="Brand" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Model" class="control-label"></label>
+    <input asp-for="Model" class="form-control"/>
+    <span asp-validation-for="Model" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="LocationId" class="control-label"></label>
+    <select asp-for="LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
+    <span asp-validation-for="LocationId" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CategoryId" class="control-label"></label>
+    <select asp-for="CategoryId" class="form-control" asp-items="Model.CategorySelectList"></select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+</div>
+<div class="form-group">
+                <label asp-for="ItemDayPrice" class="control-label"></label>
+                <input asp-for="ItemDayPrice" class="form-control"/>
+                <span asp-validation-for="ItemDayPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemWeekPrice" class="control-label"></label>
+                <input asp-for="ItemWeekPrice" class="form-control"/>
+                <span asp-validation-for="ItemWeekPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemMonthPrice" class="control-label"></label>
+                <input asp-for="ItemMonthPrice" class="form-control"/>
+                <span asp-validation-for="ItemMonthPrice" class="text-danger"></span>
+            </div>
+
+@*<div class="form-group">
+    <label asp-for="ItemDescriptions" class="control-label"></label>
+    <div id="description">
+        <a href="javascript:addDescription()">Add</a>
+        <div>
+            <select asp-for="RentalPeriodMonthId" class="form-control" asp-items="Model.RentalPeriodSelectList"></select>
+            <input asp-for="ItemMonthPrice" class="form-control"/>
+        </div>
+    </div>
+</div>*@
+
+@if (Model.CompanySelectList!.Any())
+{
+    <div class="form-group">
+        <label asp-for="CompanyId" class="control-label"></label>
+        <select asp-for="CompanyId" class="form-control" asp-items="Model.CompanySelectList">
+            <option selected>--- SELECT ---</option>
+        </select>
+        <span asp-validation-for="CompanyId" class="text-danger"></span>
+    </div>
+}
+<div class="form-group">
+    <label asp-for="Images" class="control-label"></label>
+    <input type="file" asp-for="Images" accept="image/*" multiple name="images"/>
+    <span asp-validation-for="Images" class="text-danger"></span>
+</div>
+

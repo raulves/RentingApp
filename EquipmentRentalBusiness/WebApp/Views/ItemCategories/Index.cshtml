@@ -1,0 +1,42 @@
+@model IEnumerable<WebApp.ViewModels.ItemCategoriesCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Resources.Views.ItemCategories.Index.Index.ItemCategories</h1>
+
+<p>
+    <a asp-action="Create">@Resources.Views.Shared.Common.CreateNew</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemId)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category!.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item!.Description)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">@Resources.Views.Shared.Common.Edit</a> |
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

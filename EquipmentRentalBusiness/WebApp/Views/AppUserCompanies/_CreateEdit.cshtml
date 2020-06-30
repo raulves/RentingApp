@@ -1,0 +1,8 @@
+@model WebApp.ViewModels.AppUserCompanyCreateEditViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="CompanyId" class="control-label"></label>
+    <select asp-for="CompanyId" class="form-control" asp-items="Model.CompaniesSelectList"></select>
+    <span asp-validation-for="CompanyId" class="text-danger"></span>
+</div>

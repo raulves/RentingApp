@@ -1,0 +1,134 @@
+@model WebApp.ViewModels.ItemCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>@Resources.Views.Items.Index.CreateNewItem</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control"/>
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control"/>
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationId" class="control-label"></label>
+                <select asp-for="LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
+                <span asp-validation-for="LocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="Model.CategorySelectList"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemDayPrice" class="control-label"></label>
+                <input asp-for="ItemDayPrice" class="form-control"/>
+                <span asp-validation-for="ItemDayPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemWeekPrice" class="control-label"></label>
+                <input asp-for="ItemWeekPrice" class="form-control"/>
+                <span asp-validation-for="ItemWeekPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemMonthPrice" class="control-label"></label>
+                <input asp-for="ItemMonthPrice" class="form-control"/>
+                <span asp-validation-for="ItemMonthPrice" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ProductDescriptionId" class="control-label"></label>
+                <div id="description">
+                    <a href="javascript:addDescription()">@Resources.Views.Items.Index.AddItemDescription</a>
+                    <div>
+                        <select  asp-for="ProductDescriptionId" class="form-control" asp-items="Model.ProductDescriptionSelectList"></select>
+                        <input asp-for="ItemDescription" class="form-control"/>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+            
+            @if (Model.CompanySelectList!.Any())
+            {
+                <div class="form-group">
+                    <label asp-for="CompanyId" class="control-label"></label>
+                    <select asp-for="CompanyId" class="form-control" asp-items="Model.CompanySelectList">
+                        <option value="00000000-0000-0000-0000-000000000000" selected>--- @Resources.Views.Shared.Common.Select ---</option>
+                    </select>
+                    <span asp-validation-for="CompanyId" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Images" class="control-label"></label>
+                <input type="file" asp-for="Images" accept="image/*" multiple name="images"/>
+                <span asp-validation-for="Images" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Shared.Common.Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br/>
+<div>
+    <a href="/Identity/Account/Manage">@Resources.Views.Shared.Common.BackToProfile</a>
+</div>
+<br/>
+
+@section Scripts {
+    <script type="text/javascript" charset="UTF-8">
+            function addDescription(){
+                var divElement = document.createElement('div');
+                
+                var selectElement = document.createElement('select');
+                selectElement.setAttribute("id", "ProductDescriptionIds");
+                selectElement.setAttribute("name", "ProductDescriptionIds");
+                selectElement.setAttribute("class", "form-control")
+                
+                var inputElement = document.createElement('input');
+                inputElement.setAttribute("class", "form-control");
+                inputElement.setAttribute("type", "text");
+                inputElement.setAttribute("id", "Descriptions");
+                inputElement.setAttribute("name", "Descriptions");
+                                
+                @foreach (var productDescription in Model.ProductDescriptionSelectList!)
+                {
+                    var id = productDescription.Value;
+                    var text = productDescription.Text;
+                    <text>
+                        var optionElement = document.createElement('option');
+                        optionElement.setAttribute("value", "@(id)");
+                        optionElement.innerText = "@Html.Raw(text)";
+                        selectElement.appendChild(optionElement);
+                    </text>
+                }
+                
+                divElement.appendChild(selectElement);
+                divElement.appendChild(inputElement);
+                console.log(divElement);
+                document.getElementById("description").appendChild(divElement).append(document.createElement('br'));
+            }
+            
+    </script>
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

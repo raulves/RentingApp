@@ -1,0 +1,92 @@
+@model WebApp.ViewModels.RentalPeriodCreateEditViewModel
+
+
+@{
+    ViewData["Title"] = Resources.Views.Shared.Common.Delete;
+    Layout = "_LayoutAdmin";
+}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">@Resources.Views.RentalPeriods.Index.Index.DeleteRentalPeriod</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <hr />
+                                            <dl class="row">
+                                                <dt class = "col-sm-2">
+                                                            @Html.DisplayNameFor(model => model.Description)
+                                                        </dt>
+                                                        <dd class = "col-sm-10">
+                                                            @Html.DisplayFor(model => model.Description)
+                                                        </dd>
+                                                        <dt class = "col-sm-2">
+                                                            @Html.DisplayNameFor(model => model.PeriodStart)
+                                                        </dt>
+                                                        <dd class = "col-sm-10">
+                                                            @Html.DisplayFor(model => model.PeriodStart)
+                                                        </dd>
+                                                        <dt class = "col-sm-2">
+                                                            @Html.DisplayNameFor(model => model.PeriodEnd)
+                                                        </dt>
+                                                        <dd class = "col-sm-10">
+                                                            @Html.DisplayFor(model => model.PeriodEnd)
+                                                        </dd>
+
+                                            </dl>
+                                            
+                                            <form asp-action="Delete">
+                                                <input type="hidden" asp-for="Id" />
+                                                <button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fe-check-circle mr-1"></i> @Resources.Views.Shared.Common.Delete</button>
+                                                <a asp-action="Index" type="button" class="btn btn-light waves-effect waves-light m-1"><i class="fe-x mr-1"></i> @Resources.Views.Shared.Common.BackToList</a>
+                                            </form>
+
+                                    </div> <!-- end col-->
+
+                                </div>
+                                <!-- end row -->
+
+
+                            
+                            
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row-->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

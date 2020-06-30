@@ -1,0 +1,83 @@
+@model WebApp.ViewModels.Identity.AppRoleViewModel
+
+@{
+    ViewData["Title"] = Resources.Views.Shared.Common.Create;
+    Layout = "_LayoutAdmin";
+}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">@Resources.Views.Admin.Roles.Roles.CreateRole</h4>
+                        @Html.ValidationMessage("exists", new {@class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form asp-action="CreateRole">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <hr/>
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label asp-for="Name"></label>
+                                            <input asp-for="Name" class="form-control"/>
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="DisplayName"></label>
+                                            <input asp-for="DisplayName" class="form-control"/>
+                                            <span asp-validation-for="DisplayName" class="text-danger"></span>
+                                        </div>
+
+                                    </div> <!-- end col-->
+
+                                </div>
+                                <!-- end row -->
+
+
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fe-check-circle mr-1"></i> @Resources.Views.Shared.Common.Create</button>
+                                        <a asp-action="Roles" type="button" class="btn btn-light waves-effect waves-light m-1"><i class="fe-x mr-1"></i> @Resources.Views.Shared.Common.BackToList</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row-->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

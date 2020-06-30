@@ -1,0 +1,87 @@
+@model Domain.App.LangStrTranslation
+
+
+@{
+    ViewData["Title"] = Resources.Views.Shared.Common.Create;
+    Layout = "_LayoutAdmin";
+}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        @* <h4 class="page-title">@Resources.Views.LangStrTranslations.LangStrTranslation.CreateNewLangStrTranslation</h4> *@
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form asp-action="Create">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <hr/>
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Culture" class="control-label"></label>
+                                                        <input asp-for="Culture" class="form-control" />
+                                                        <span asp-validation-for="Culture" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Value" class="control-label"></label>
+                                                        <input asp-for="Value" class="form-control" />
+                                                        <span asp-validation-for="Value" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="LangStrId" class="control-label"></label>
+                                                        <select asp-for="LangStrId" class="form-control" asp-items="ViewBag.LangStrId">
+                                                            
+                                                        </select>
+                                                    </div>
+
+                                    </div> <!-- end col-->
+
+                                </div>
+                                <!-- end row -->
+
+
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fe-check-circle mr-1"></i> @Resources.Views.Shared.Common.Create</button>
+                                        <a asp-action="Index" type="button" class="btn btn-light waves-effect waves-light m-1"><i class="fe-x mr-1"></i> @Resources.Views.Shared.Common.BackToList</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row-->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,112 @@
+@model IEnumerable<WebApp.ViewModels.PaymentTypeCreateEditViewModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutAdmin";
+}
+
+<!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    
+                                    <h4 class="page-title">@Resources.Views.Shared._LayoutAdmin.PaymentTypes</h4>
+                                </div>
+                            </div>
+                        </div>     
+                        <!-- end page title --> 
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-md-6">
+                                                @*<form asp-controller="Categories" asp-action="Index" method="get"  class="search-bar form-inline">
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" placeholder="@Resources.Views.Shared.Common.SearchPlaceHolder" name="search" value="@ViewData["currentFilter"]">
+                                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@Resources.Views.Shared.Common.Search</button>
+                                                        @if (@ViewData["currentFilter"] != null)
+                                                        {
+                                                            <a asp-controller="Categories" asp-action="Index">@Resources.Views.Shared.Common.BackToFullList</a>
+                                                        }
+                                                        
+                                                    </div>
+                                                </form>*@
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="text-md-right">
+                                                    <a asp-controller="PaymentTypes" asp-action="Create" type="button" class="btn btn-danger waves-effect waves-light mb-2 mr-2">@Resources.Views.PaymentTypes.Index.Index.AddPaymentType</a>
+                                                </div>
+                                            </div><!-- end col-->
+                                        </div>
+                
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-nowrap table-borderless table-hover mb-0">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                                                    <th style="width: 82px;">@Resources.Views.Admin.AppUsers.AppUsers.Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td class="table-user">
+                                                            @Html.DisplayFor(modelItem => item.Description)
+                                                        </td>
+                                                        <td>
+                                                            <a asp-controller="PaymentTypes" asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="action-icon"><img src="~/img/edit-24.png" alt="Edit logo" class="logo"></a>
+                                                            <a asp-controller="PaymentTypes" asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="action-icon"><img src="~/img/delete-24.png" alt="Delete logo" class="logo"></a>
+                                                        </td>
+                                                    </tr>   
+                                                }
+
+                                                </tbody>
+                                            </table>
+                                            @*@{
+                                                var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                                                var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                                            }*@
+                                        </div>
+
+                                        @*<ul class="pagination pagination-rounded justify-content-end my-2">
+                                            <li class="page-item @prevDisabled">
+                                                <a class="page-link" asp-controller="Categories" asp-action="Index" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-pageNumber="@(Model.PageIndex - 1)" aria-label="Previous">
+                                                    <span aria-hidden="true">«</span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                            </li>
+                                            @for (var i = 1; i <= Model.TotalPages; i++)
+                                            {
+                                                <li class="page-item active"><a class="page-link" asp-controller="Categories" asp-action="Index" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-pageNumber="@i">@i</a></li>
+                                            }
+                                            
+                                            <li class="page-item @nextDisabled">
+                                                <a class="page-link" asp-controller="Categories" asp-action="Index" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-pageNumber="@(Model.PageIndex + 1)" aria-label="Next">
+                                                    <span aria-hidden="true">»</span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </li>
+                                        </ul>*@
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+                        </div>
+                    <!-- end row -->
+            </div> <!-- container -->
+
+            </div> <!-- content -->
+            </div>

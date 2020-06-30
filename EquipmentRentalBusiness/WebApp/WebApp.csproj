@@ -1,0 +1,1014 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>aspnet-WebApp-0C688FC8-B36B-4434-8952-26DC1D9658EB</UserSecretsId>
+        <Nullable>enable</Nullable>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\WebApp.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+        <PackageReference Include="SendGrid" Version="9.17.0" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-rc0001" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+        <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BLL.App\BLL.App.csproj" />
+      <ProjectReference Include="..\Contracts.BLL.App\Contracts.BLL.App.csproj" />
+      <ProjectReference Include="..\DAL.App.EF\DAL.App.EF.csproj" />
+      <ProjectReference Include="..\Extensions\Extensions.csproj" />
+      <ProjectReference Include="..\Resources\Resources.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\AccessDenied.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ConfirmEmail.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ExternalLogin.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Lockout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\LoginWith2fa.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Logout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\PersonalData.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_StatusMessage.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_LoginPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\bootstrap\variables.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\color\color-1.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\color\color-2.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\color\color-3.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\color\color-4.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\color\color-5.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\color\color-6.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\iconfont.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\responsive.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\css\style.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\flaticon.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Flaticon.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\flaticon.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Flaticon.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Flaticon.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Flaticon.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\_flaticon.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\css\font-awesome.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\css\font-awesome.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\HELP-US-OUT.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\animated.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\bordered-pulled.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\core.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\fixed-width.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\font-awesome.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\icons.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\larger.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\list.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\mixins.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\path.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\rotated-flipped.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\screen-reader.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\stacked.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\less\variables.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\font-awesome.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_animated.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_core.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_fixed-width.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_icons.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_larger.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_list.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_mixins.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_path.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_screen-reader.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_stacked.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\font-awesome-4.7.0\scss\_variables.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\linea\fonts\linea-basic-10.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\linea\fonts\linea-basic-10.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\linea\fonts\linea-basic-10.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\linea\fonts\linea-basic-10.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\linea\icons-reference.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\icons\linea\styles.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\apple-icon-114x114.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\apple-icon-72x72.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\apple-icon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\b1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\b2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\b3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\f1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\f2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\f3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\flogo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\loading.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-five-660-640.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-five-thumb.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-five.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-four-thumb.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-four.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-one-660-640.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-three-thumb.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-three.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-two-660-640.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\model-two.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\ms.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\p1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\payment.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\rating.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\s-1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\s-2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\s-3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\s-4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\ss.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\t3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\testimonial-bg.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\xt-title-bg.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\bootstrap\variables.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\color\color-1.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\color\color-2.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\color\color-3.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\color\color-4.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\color\color-5.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\color\color-6.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\css-tree.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\defult-style.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\js\init.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\less-function.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\responsive.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\responsive.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\style.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\style.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\less\variable.less" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\ajax-loader.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\animate.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\bootstrap-dropdownhover.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\close.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\close@2x.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\flexslider.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\flickity.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\fonts\slick.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\fonts\slick.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\fonts\slick.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\fonts\slick.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\jquery-ui.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\jquery.fancybox.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\jquery.fancybox.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\loading.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\loading@2x.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\meanmenu.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\next.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\next@2x.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\nivo-lightbox.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\nivo-theme.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\owl.carousel.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\owl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\owl.theme.default.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\prev.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\prev@2x.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\selectize.bootstrap3.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\selectize.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\slick-theme.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\slick.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\slicknav.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\slider.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\css\style-switch.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\img\fancybox_loading.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\img\fancybox_loading@2x.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\img\fancybox_overlay.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\img\fancybox_sprite.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\img\fancybox_sprite@2x.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\bootstrap-dropdownhover.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\countUp.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\flickity.pkgd.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery-1.11.3.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery-3.1.1.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery-ui.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.ajaxchimp.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.fancybox.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.fancybox.pack.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.fitvids.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.flexslider-min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.nav.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\jquery.slicknav.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\meanmenu.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\nivo-lightbox.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\owl.carousel.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\selectize.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\selectize.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\slick.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\smooth-scroll.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\standalone\selectize.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\standalone\selectize.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\style-switch.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\validator.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\plugins\js\wow.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\.gitattributes" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\.gitignore" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\.travis.yml" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\bower.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\CONTRIBUTING.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\ajax-loader.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.carousel.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.carousel.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.theme.default.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.theme.default.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.theme.green.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.theme.green.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\assets\owl.video.play.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\owl.carousel.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\owl.carousel.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\dist\README.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\css\animate.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\css\docs.theme.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\bird_blue_32.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\download.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\feature-drag.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\feature-modern.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\feature-module.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\feature-options.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\feature-responsive.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\feature-zombie.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\owl-logo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\img\twitter_25.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\js\app.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\js\foundation.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\ajax-loader.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.carousel.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.carousel.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.theme.default.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.theme.default.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.theme.green.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.theme.green.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\assets\owl.video.play.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\owl.carousel.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\owl.carousel.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\owlcarousel\README.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\vendors\foundation.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\vendors\highlight.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\vendors\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\vendors\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\assets\vendors\jquery.mousewheel.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\animate.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\autoheight.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\autoplay.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\autowidth.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\basic.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\center.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\demos.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\events.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\lazyLoad.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\merge.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\mousewheel.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\responsive.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\rtl.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\stagepadding.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\test.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\urlhashnav.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\demos\video.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\api-classes.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\api-events.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\api-options.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\dev-buildin-plugins.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\dev-external.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\dev-plugin-api.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\dev-styles.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\started-faq.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\started-installation.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\started-welcome.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\support-changelog.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\support-contact.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\docs\support-contributing.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\css\animate.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\bird_blue_32.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\download.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\feature-drag.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\feature-modern.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\feature-module.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\feature-options.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\feature-responsive.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\feature-zombie.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\owl-logo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\img\twitter_25.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\js\app.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\js\foundation.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\scss\custom.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\scss\demos.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\scss\docs.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\scss\docs.theme.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\scss\highlight.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\scss\_settings.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\vendors\foundation.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\vendors\highlight.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\vendors\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\vendors\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\assets\vendors\jquery.mousewheel.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\data\classes.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\data\events.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\data\features.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\data\options.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\helpers\modulo.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\helpers\test.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\layouts\demos.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\layouts\docs.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\layouts\home.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\animate.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\autoheight.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\autoplay.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\autowidth.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\basic.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\center.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\demos.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\events.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\lazyLoad.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\merge.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\mousewheel.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\responsive.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\rtl.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\stagepadding.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\test.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\urlhashnav.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\demos\video.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\api-classes.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\api-events.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\api-options.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\dev-buildin-plugins.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\dev-external.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\dev-plugin-api.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\dev-styles.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\started-faq.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\started-installation.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\started-welcome.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\support-changelog.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\support-contact.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\docs\support-contributing.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\pages\index.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\footer.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\head.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\header.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\home-carousel.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\home-features.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\home-hero.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\home-teaser-text.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\javascripts.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\releated-docs.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\sidenav-docs.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\title.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\docs_src\templates\partials\vendors.hbs" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\Gruntfile.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\ISSUE_TEMPLATE.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\package-lock.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\package.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\README.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\ROADMAP.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\img\ajax-loader.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\img\owl.video.play.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\.jscsrc" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\.jshintrc" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.animate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.autoheight.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.autoplay.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.autorefresh.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.carousel.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.hash.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.lazyload.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.navigation.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.support.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.support.modernizr.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\js\owl.video.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\owl.carousel.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\owl.theme.default.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\owl.theme.green.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_animate.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_autoheight.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_core.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_lazyload.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_theme.default.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_theme.green.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_theme.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\src\scss\_video.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\test\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\test\unit\autoplay.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\test\unit\core.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\owlcarousel\_config.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\1e59d2330b4c6deb84b340635ed36249.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\20fd1704ea223900efa9fd4e869efb08.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\8b43027f47b20503057dfbbaa9401fef.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\c1e38fd9e0e74ba58f7a2b77ef29fdd3.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-core\supplemental\likelySubtags.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-core\supplemental\numberingSystems.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-core\supplemental\timeData.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-core\supplemental\weekData.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\en\ca-generic.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\en\ca-gregorian.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\en\dateFields.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\en\timeZoneNames.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\et\ca-generic.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\et\ca-gregorian.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\et\dateFields.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\et\timeZoneNames.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\ru\ca-generic.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\ru\ca-gregorian.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\ru\dateFields.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-dates-modern\main\ru\timeZoneNames.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-numbers-modern\main\en\currencies.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-numbers-modern\main\en\numbers.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-numbers-modern\main\et\currencies.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-numbers-modern\main\et\numbers.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-numbers-modern\main\ru\currencies.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\cldr-numbers-modern\main\ru\numbers.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\f691f37e57f04c152e2315ab7dbad881.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\jquery.validate.globalize.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\site.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ApiControllers\1.1" />
+      <Folder Include="wwwroot\css\admin\img" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="Views\_ViewImports.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\_ViewStart.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemsBooked\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Payments\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemDescriptions\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\PaymentTypes\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\AppUserCompanies\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ProductDescriptions\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Locations\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemOwnerships\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Categories\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\ItemCategories\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\_DetailsDelete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\_CreateEdit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\RentalPeriods\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\rental_34x34.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\rental_50x50.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\shoppingcart_34x34.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\shoppingcart_50x50.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\husqvarna.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\js\jquery.validate.globalize.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="tsconfig.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Companies\AppUserCompanies.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Items\AppUserCompaniesItems.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Items\AppUserItems.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Bookings\AppUserBookingsAsRenter.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Bookings\AppUserBookingsAsOwner.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Bookings\AppUserCompaniesBookingsAsOwner.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Bookings\AppUserCompaniesBookingsAsRenter.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\add-icon.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\img\remove-icon.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\flatpickr.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\selectize.bootstrap3.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\bootstrap.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\app.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\bootstrap-dark.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\app-dark.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\icons.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\vendor.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\flatpickr.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\apexcharts.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\selectize.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\dashboard-1.init.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\admin\app.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Shared\_LayoutAdmin.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\Admins\AppUserRoles.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrs\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrs\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrs\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrs\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrs\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrTranslations\Edit.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrTranslations\Delete.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrTranslations\Create.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrTranslations\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Views\LangStrTranslations\Details.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\js\site.ts" />
+    </ItemGroup>
+
+</Project>

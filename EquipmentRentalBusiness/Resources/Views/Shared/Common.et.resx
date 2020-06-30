@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Edit" xml:space="preserve">
+    <value>Muuda</value>
+    </data>
+    <data name="Details" xml:space="preserve">
+    <value>Vaata</value>
+    </data>
+    <data name="BackToProfile" xml:space="preserve">
+    <value>Tagasi</value>
+    </data>
+    <data name="CreateNew" xml:space="preserve">
+    <value>Sisesta uus</value>
+    </data>
+    <data name="Create" xml:space="preserve">
+    <value>Lisa</value>
+    </data>
+    <data name="Select" xml:space="preserve">
+    <value>VALI</value>
+    </data>
+    <data name="ChoosePictures" xml:space="preserve">
+    <value>Vali pildid</value>
+    </data>
+    <data name="NoFileChosen" xml:space="preserve">
+    <value>Ühtegi faili pole valitud</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+    <value>Salvesta</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+    <value>Kustuta</value>
+    </data>
+    <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Kas sa oled kindel, et soovid kustutada?</value>
+    </data>
+    <data name="BackToList" xml:space="preserve">
+    <value>Tagasi</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+    <value>Otsi</value>
+    </data>
+    <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Otsi...</value>
+    </data>
+    <data name="BackToFullList" xml:space="preserve">
+    <value>Kõik kasutajad</value>
+    </data>
+
+
+    <data name="ErrorMessage_MaxLength">
+        <value>Väli {0} ei saa olla pikem kui '{1}'.</value>
+    </data>
+    <data name="ErrorMessage_MinLength">
+        <value>Väli {0} ei saa olla lühem kui '{1}'.</value>
+    </data>
+    <data name="ErrorMessage_Required">
+        <value>Väli {0} on kohustuslik.</value>
+    </data>
+    <data name="ErrorMessage_StringLengthMax">
+        <value>Väli {0} must be a string with a maximum length of {1}.</value>
+    </data>
+    <data name="ErrorMessage_StringLengthMinMax">
+        <value>Väli {0} must be a string with a minimum length of {2} and a maximum length of {1}.</value>
+    </data>
+    <data name="ErrorMessage_Range">
+        <value>Väli {0} peab olema vahemikus {1} kuni {2}.</value>
+    </data>
+    <data name="Submit" xml:space="preserve">
+    <value>Esita</value>
+    </data>
+</root>

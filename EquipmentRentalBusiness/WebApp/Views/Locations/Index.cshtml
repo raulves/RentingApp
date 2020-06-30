@@ -1,0 +1,53 @@
+@model IEnumerable<WebApp.ViewModels.LocationCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Resources.Domain.Location.Location.YourAddresses</h1>
+
+<p>
+    <a asp-action="Create">@Resources.Views.Shared.Common.CreateNew</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressLine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.County)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressLine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">@Resources.Views.Shared.Common.Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,72 @@
+@model WebApp.ViewModels.BookingsCreateEditViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="BookingDate" class="control-label"></label>
+    <input asp-for="BookingDate" class="form-control"/>
+    <span asp-validation-for="BookingDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="BookingStartDay" class="control-label"></label>
+    <input asp-for="BookingStartDay" class="form-control"/>
+    <span asp-validation-for="BookingStartDay" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="BookingEndDay" class="control-label"></label>
+    <input asp-for="BookingEndDay" class="form-control"/>
+    <span asp-validation-for="BookingEndDay" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="BookingPeriodDays" class="control-label"></label>
+    <input asp-for="BookingPeriodDays" class="form-control"/>
+    <span asp-validation-for="BookingPeriodDays" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PricePerDay" class="control-label"></label>
+    <input asp-for="PricePerDay" class="form-control"/>
+    <span asp-validation-for="PricePerDay" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="VatPercent" class="control-label"></label>
+    <input asp-for="VatPercent" class="form-control"/>
+    <span asp-validation-for="VatPercent" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Vat" class="control-label"></label>
+    <input asp-for="Vat" class="form-control"/>
+    <span asp-validation-for="Vat" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="BookingWithoutVat" class="control-label"></label>
+    <input asp-for="BookingWithoutVat" class="form-control"/>
+    <span asp-validation-for="BookingWithoutVat" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="BookingTotal" class="control-label"></label>
+    <input asp-for="BookingTotal" class="form-control"/>
+    <span asp-validation-for="BookingTotal" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ItemId" class="control-label"></label>
+    <select asp-for="ItemId" class="form-control" asp-items="Model.ItemSelectList"></select>
+</div>
+<div class="form-group">
+    <label asp-for="ItemOwnerId" class="control-label"></label>
+    <select asp-for="ItemOwnerId" class="form-control" asp-items="Model.ItemOwnerSelectList"></select>
+</div>
+<div class="form-group">
+    <label asp-for="RenterId" class="control-label"></label>
+    <select asp-for="RenterId" class="form-control" asp-items="Model.RenterSelectList"></select>
+</div>
+<div class="form-group">
+    <label asp-for="ItemOwnerCompanyId" class="control-label"></label>
+    <select asp-for="ItemOwnerCompanyId" class="form-control" asp-items="Model.ItemOwnerCompanySelectList"></select>
+</div>
+<div class="form-group">
+    <label asp-for="RenterCompanyId" class="control-label"></label>
+    <select asp-for="RenterCompanyId" class="form-control" asp-items="Model.RenterCompanySelectList"></select>
+</div>
+<div class="form-group">
+    <label asp-for="InvoiceId" class="control-label"></label>
+    <select asp-for="InvoiceId" class="form-control" asp-items="Model.InvoiceSelectList"></select>
+</div>

@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Resources.Views.Account.Manage.Manage.ManageYourAccount</h1>
+
+<div>
+    <h4>@Resources.Views.Account.Manage.Manage.ChangeAccountSettings</h4>
+    <hr/>
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav"/>
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+
+    <br/>
+    <h4>@Resources.Views.Account.Manage.Manage.Iown</h4>
+    <hr/>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Bookings" asp-action="AppUserBookingsAsOwner">@Resources.Views.Account.Manage.Manage.Bookings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Items" asp-action="AppUserItems">@Resources.Views.Account.Manage.Manage.Items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Locations" asp-action="Index">@Resources.Views.Account.Manage.Manage.Addresses</a>
+        </li>
+    </ul>
+    <br/>
+    <h4>@Resources.Views.Account.Manage.Manage.Irent</h4>
+    <hr/>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Bookings" asp-action="AppUserBookingsAsRenter">@Resources.Views.Account.Manage.Manage.Bookings</a>
+        </li>
+    </ul>
+    <br/>
+    <h4>@Resources.Views.Account.Manage.Manage.MyCompanies</h4>
+    <hr/>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Companies" asp-action="AppUserCompanies">@Resources.Views.Account.Manage.Manage.Companies</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Bookings" asp-action="AppUserCompaniesBookingsAsRenter">@Resources.Views.Account.Manage.Manage.BookingsAsRenter</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Items" asp-action="AppUserCompaniesItems">@Resources.Views.Account.Manage.Manage.Items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Bookings" asp-action="AppUserCompaniesBookingsAsOwner">@Resources.Views.Account.Manage.Manage.BookingsAsOwner</a>
+        </li>
+    </ul>
+    
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

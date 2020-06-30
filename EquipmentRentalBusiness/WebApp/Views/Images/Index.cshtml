@@ -1,0 +1,41 @@
+@model IEnumerable<WebApp.ViewModels.ImageCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Resources.Views.Image.Index.Index.Images</h1>
+
+<p>
+    <a asp-action="Create">@Resources.Views.Shared.Common.CreateNew</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemId)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="data:image/*;base64,@Convert.ToBase64String(item.Picture!)" class="card-img-top images" style="display: block;" alt="Image">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item!.Description)
+            </td>
+            
+            <td>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

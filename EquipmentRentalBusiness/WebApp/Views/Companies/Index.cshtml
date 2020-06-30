@@ -1,0 +1,69 @@
+@model IEnumerable<WebApp.ViewModels.CompanyCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <a href="/Identity/Account/Manage">@Resources.Views.Shared.Common.BackToProfile</a>
+</div>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">@Resources.Views.Shared.Common.CreateNew</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VatNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationId)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VatNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location!.AddressLine)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

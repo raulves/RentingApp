@@ -1,0 +1,29 @@
+@model WebApp.ViewModels.LocationCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>@Resources.Views.Location.Create.AddNewAddress</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            
+            <partial name="_CreateEdit" model="@Model"/>
+            
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Shared.Common.Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@Resources.Views.Shared.Common.BackToList</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

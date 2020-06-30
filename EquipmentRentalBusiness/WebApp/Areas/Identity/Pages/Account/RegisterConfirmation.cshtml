@@ -1,0 +1,21 @@
+@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = Resources.Views.Account.Register.Register.RegisterConfirmation;
+}
+
+<h1>@Resources.Views.Account.Register.Register.RegisterConfirmation</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+     <a id="confirm-link" href="@Model.EmailConfirmationUrl">@Resources.Views.Account.Register.Register.ConfirmAccount</a>
+</p>
+    }
+    else
+    {
+<p>
+        @Resources.Views.Account.Register.Register.CheckEmailToConfirm
+</p>
+    }
+}

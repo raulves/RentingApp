@@ -1,0 +1,48 @@
+@model WebApp.ViewModels.ShowItemsVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <form asp-controller="Items" asp-action="Index" class="form-inline" method="get">
+            <div class="form-group">
+                <select asp-for="CategoryId" class="form-control" asp-items="Model.CategorySelectList">
+                    <option selected>@Resources.Views.Shared._Layout.AllCategories</option>
+                </select>
+            </div>
+            <input class="form-control mr-sm-2" type="text" placeholder="@Resources.Views.Shared._Layout.SearchPlaceholder" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@Resources.Views.Shared._Layout.Search</button>
+
+        </form>
+    </div>
+</nav>
+
+
+<div class="row">
+    @foreach (var item in Model.Items!)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <b>
+                            <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Description)</h5>
+                        </b>
+                    </div>
+                    <a asp-controller="Bookings" asp-action="Create" asp-route-id="@item.Id">
+                        <img src="data:image/*;base64,@Convert.ToBase64String(item.Image!)" class="card-img-top mx-auto imagesFront" style="display: block;" alt="Image">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text float-right">@Html.DisplayFor(modelItem => item.Price) @Resources.Views.Shared._Layout.DayPrice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

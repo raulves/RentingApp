@@ -1,0 +1,33 @@
+@model WebApp.ViewModels.PriceCreateEditViewModel
+
+@{
+    ViewData["Title"] = Resources.Views.Shared.Common.Edit;
+}
+
+
+
+<h4>@Resources.Views.Price.Edit.Edit.SetNewPrice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            
+            <partial name="_CreateEdit" model="@Model"/>
+            
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="RentalPeriodId" />
+            <input type="hidden" asp-for="ItemId" />
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Shared.Common.Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@Resources.Views.Shared.Common.BackToList</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

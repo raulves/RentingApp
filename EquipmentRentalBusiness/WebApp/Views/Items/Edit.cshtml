@@ -1,0 +1,63 @@
+@model WebApp.ViewModels.ItemEditVM
+
+@{
+    ViewData["Title"] = Resources.Views.Shared.Common.Edit;
+}
+<br/>
+<div>
+    <a href="/Identity/Account/Manage">@Resources.Views.Shared.Common.BackToProfile</a>
+</div>
+<br/>
+
+<h1>@Resources.Views.Items.Index.EditItem</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control"/>
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control"/>
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationId" class="control-label"></label>
+                <select asp-for="LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
+                <span asp-validation-for="LocationId" class="text-danger"></span>
+            </div>
+            
+            <a class="btn btn-lg btn-light" asp-controller="Locations" asp-action="Create">@Resources.Views.Items.Index.AddAddress</a>
+            <br/>
+            <a class="btn btn-lg btn-light" asp-controller="ItemCategories" asp-action="Index">@Resources.Views.Items.Index.ChangeCategory</a>
+            <br/>
+            <a class="btn btn-lg btn-light" asp-controller="Images" asp-action="Index">@Resources.Views.Items.Index.ChangeImages</a>
+            <br/>
+            <a class="btn btn-lg btn-light" asp-controller="ItemOwnerships" asp-action="Index">@Resources.Views.Items.Index.ChangeOwnership</a>
+            <br/>
+            <a class="btn btn-lg btn-light" asp-controller="Prices" asp-action="Index">@Resources.Views.Items.Index.ChangePrices</a>
+            <br/>
+            <a class="btn btn-lg btn-light" asp-controller="ItemDescriptions" asp-action="Index">@Resources.Views.Items.Index.ChangeItemDescriptions</a>
+            <br/>
+
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Shared.Common.Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

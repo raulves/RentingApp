@@ -1,0 +1,94 @@
+@model WebApp.ViewModels.AppUserToRoleDeleteViewModel
+
+@{
+    ViewData["Title"] = "Remove";
+    Layout = "_LayoutAdmin";
+}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">@Resources.Views.Admin.AppUserRoles.AppUserRoles.RemoveUserFromRole</h4>
+                        @Html.ValidationMessage("notice", new {@class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <hr />
+                                        <form asp-action="RemoveAppUserFromRole">
+                                            <dl class="row">
+                                                <dt class = "col-sm-2">
+                                                    @Html.DisplayNameFor(model => model.AppUser.FirstName)
+                                                </dt>
+                                                <dd class = "col-sm-10">
+                                                    @Html.DisplayFor(model => model.AppUser.FirstName)
+                                                </dd>
+                                                <dt class = "col-sm-2">
+                                                    @Html.DisplayNameFor(model => model.AppUser.LastName)
+                                                </dt>
+                                                <dd class = "col-sm-10">
+                                                    @Html.DisplayFor(model => model.AppUser.LastName)
+                                                </dd>
+                                                <dt class = "col-sm-2">
+                                                    @Html.DisplayNameFor(model => model.Roles)
+                                                </dt>
+                                                <dd class="col-sm-10">
+                                                    <select asp-for="RoleId" class="form-control" asp-items="Model.Roles"></select>
+                                                    <span asp-validation-for="RoleId" class="text-danger"></span>
+                                                </dd>
+                                        
+                                            </dl>
+                                            
+                                            
+                                                <input type="hidden" asp-for="Id" />
+                                                <button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fe-check-circle mr-1"></i> @Resources.Views.Admin.AppUserRoles.AppUserRoles.RemoveFromRole</button>
+                                                <a asp-action="AppUserRoles" type="button" class="btn btn-light waves-effect waves-light m-1"><i class="fe-x mr-1"></i> @Resources.Views.Shared.Common.BackToList</a>
+                                            </form>
+
+                                    </div> <!-- end col-->
+
+                                </div>
+                                <!-- end row -->
+
+
+                            
+                            
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row-->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

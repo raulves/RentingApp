@@ -1,0 +1,42 @@
+﻿﻿@using Domain
+@using Domain.App.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Profile">@Resources.Views.Shared._Layout.Hello @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Bookings" asp-action="Index" title="@Resources.Views.Shared._Layout.ShoppingCart">
+                <img src="~/img/shoppingcart_34x34.png" alt="Shopping cart logo">
+            </a>
+        </li>
+
+        @if (User.IsInRole("admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Admins" asp-action="Index" title="Admin">@Resources.Views.Shared._Layout.Admin</a>
+            </li>
+        }
+
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Items", new {area = ""})">
+                <button type="submit" class="nav-link btn btn-link text-dark">@Resources.Views.Shared._Layout.Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">@Resources.Views.Shared._Layout.Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@Resources.Views.Shared._Layout.Login</a>
+        </li>
+    }
+    <partial name="_LanguageSelection"/>
+</ul>

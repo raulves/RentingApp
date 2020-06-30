@@ -1,0 +1,209 @@
+@model WebApp.ViewModels.AdminIndexVM
+@{
+    Layout = "_LayoutAdmin";
+}
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title">@Resources.Views.Shared._LayoutAdmin.Dashboard</h4>
+                                </div>
+                            </div>
+                        </div>     
+                        <!-- end page title --> 
+
+                        <div class="row">
+                            <div class="col-md-6 col-xl-3">
+                                <div class="widget-rounded-circle card-box">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
+                                                <i class="fe-heart font-22 avatar-title text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-right">
+                                                <h3 class="mt-1">€<span data-plugin="counterup">@Model.TotalRevenue</span></h3>
+                                                <p class="text-muted mb-1 text-truncate">@Resources.Views.Admin.Index.Index.TotalRevenue</p>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                </div> <!-- end widget-rounded-circle-->
+                            </div> <!-- end col-->
+
+                            <div class="col-md-6 col-xl-3">
+                                <div class="widget-rounded-circle card-box">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                                <i class="fe-shopping-cart font-22 avatar-title text-success"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-right">
+                                                <h3 class="text-dark mt-1"><span data-plugin="counterup">@Model.TotalSales</span></h3>
+                                                <p class="text-muted mb-1 text-truncate">@Resources.Views.Admin.Index.Index.TotalSales</p>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                </div> <!-- end widget-rounded-circle-->
+                            </div> <!-- end col-->
+
+                            <div class="col-md-6 col-xl-3">
+                                <div class="widget-rounded-circle card-box">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                                <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-right">
+                                                <h3 class="text-dark mt-1"><span data-plugin="counterup">@Model.UsersCount</span></h3>
+                                                <p class="text-muted mb-1 text-truncate">@Resources.Views.Admin.Index.Index.Users</p>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                </div> <!-- end widget-rounded-circle-->
+                            </div> <!-- end col-->
+
+                            <div class="col-md-6 col-xl-3">
+                                <div class="widget-rounded-circle card-box">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
+                                                <i class="fe-eye font-22 avatar-title text-warning"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-right">
+                                                <h3 class="text-dark mt-1"><span data-plugin="counterup">@Model.ProductsCount</span></h3>
+                                                <p class="text-muted mb-1 text-truncate">@Resources.Views.Admin.Index.Index.Products</p>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                </div> <!-- end widget-rounded-circle-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+
+                        
+                    
+
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card-box">
+                                    
+
+                                    <h4 class="header-title mb-3">@Resources.Views.Admin.Index.Index.Top5Products</h4>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>@Resources.Views.Admin.Index.Index.Product</th>
+                                                    <th>@Resources.Views.Admin.Index.Index.Brand</th>
+                                                    <th>@Resources.Views.Admin.Index.Index.Model</th>
+                                                    <th>@Resources.Views.Admin.Index.Index.Bookings</th>
+                                                    <th>@Resources.Views.Admin.Index.Index.Revenue</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach (var item in Model.Top5Items!)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Description)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Brand)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Model)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.BookingsCount)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Revenue)
+                                                    </td>
+                                                </tr>
+                                            }
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+
+                            <div class="col-xl-6">
+                                <div class="card-box">
+
+                                    <h4 class="header-title mb-3">@Resources.Views.Admin.Index.Index.Top5MostItemOwners</h4>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless table-nowrap table-hover table-centered m-0">
+
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>@Resources.Views.Admin.Index.Index.Firstname</th>
+                                                    <th>@Resources.Views.Admin.Index.Index.Lastname</th>
+                                                    <th>@Resources.Views.Admin.Index.Index.Items</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach (var user in Model.Top5ItemOwners!)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => user.FirstName)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => user.LastName)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => user.ItemsCount)
+                                                    </td>
+
+                                                </tr>
+                                            }
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end .table-responsive-->
+                                </div> <!-- end card-box-->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        
+
+

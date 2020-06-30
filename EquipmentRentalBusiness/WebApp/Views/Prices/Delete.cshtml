@@ -1,0 +1,17 @@
+@model WebApp.ViewModels.PriceCreateEditViewModel
+
+@{
+    ViewData["Title"] = Resources.Views.Shared.Common.Delete;
+}
+
+<h3>@Resources.Views.Shared.Common.DeleteConfirmation</h3>
+<div>
+    
+    <partial name="_DetailsDelete" model="@Model"/>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Resources.Views.Shared.Common.Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">@Resources.Views.Shared.Common.BackToList</a>
+    </form>
+</div>

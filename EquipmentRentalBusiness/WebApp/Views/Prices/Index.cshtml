@@ -1,0 +1,44 @@
+@model IEnumerable<WebApp.ViewModels.PriceCreateEditViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Resources.Views.Price.Index.Index.PricesForItems</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalPeriodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item!.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalPeriod!.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemPrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">@Resources.Views.Shared.Common.Edit</a> |
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
